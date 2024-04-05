@@ -1,16 +1,5 @@
 import CSSFilterController from './filterCSS.mjs'
 
-// Recoger datos de un formulario
-// const formulario = document.getElementById('formulario')
-
-// formulario.addEventListener('submit', (e) => {
-//   e.preventDefault()
-
-//   const formData = new FormData(e.target)
-//   const data = Object.fromEntries(formData)
-//   console.log(data)
-// })
-
 // Cambiar imagen de previsualización
 const fileInput = document.getElementById('fileInput')
 const previewImage = document.getElementById('previewImage')
@@ -35,9 +24,6 @@ const imagenElemento = document.getElementById('previewImage')
 
 // Crear una instancia de CSSFilterController
 const filterController = new CSSFilterController(imagenElemento)
-
-// Ejemplo: ajustar el brillo de la imagen
-filterController.setBrightness(150) // Esto aumentará el brillo al 150%
 
 // Escuahr evento de cambio del input y aplicar filtro
 
