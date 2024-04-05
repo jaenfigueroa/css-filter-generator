@@ -80,6 +80,10 @@ class CSSFilterController {
     // this.getFilterCSSCode()
   }
 
+  getFilters() {
+    return this.filters
+  }
+
   getFilterValue() {
     let CSSFilterValue = ''
 

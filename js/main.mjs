@@ -43,42 +43,42 @@ const filterController = new CSSFilterController(imagenElemento)
 
 // Escuahr evento de cambio del input y aplicar filtro
 
-const controller = [
+const controllers = [
   {
     inputElement: grayscaleInput,
-    setter: (value) => filterController.setGrayscale(value),
+    setter: filterController.setGrayscale,
   },
   {
     inputElement: sepiaInput,
-    setter: (value) => filterController.setSepia(value),
+    setter: filterController.setSepia,
   },
   {
     inputElement: blurInput,
-    setter: (value) => filterController.setBlur(value),
+    setter: filterController.setBlur,
   },
   {
     inputElement: brightnessInput,
-    setter: (value) => filterController.setBrightness(value),
+    setter: filterController.setBrightness,
   },
   {
     inputElement: hueRotateInput,
-    setter: (value) => filterController.setHueRotate(value),
+    setter: filterController.setHueRotate,
   },
   {
     inputElement: saturateInput,
-    setter: (value) => filterController.setSaturate(value),
+    setter: filterController.setSaturate,
   },
   {
     inputElement: contrastInput,
-    setter: (value) => filterController.setContrast(value),
+    setter: filterController.setContrast,
   },
   {
     inputElement: opacityInput,
-    setter: (value) => filterController.setOpacity(value),
+    setter: filterController.setOpacity,
   },
   {
     inputElement: invertInput,
-    setter: (value) => filterController.setInvert(value),
+    setter: filterController.setInvert,
   },
 ]
 
@@ -86,9 +86,9 @@ const controller = [
 // y aplicar el filtro correspondiente
 // y actualizar el textarea
 
-controller.forEach((item) => {
+controllers.forEach((item) => {
   item.inputElement.addEventListener('input', function () {
-    item.setter(this.value)
+    item.setter.apply(filterController, [this.value])
     updateTextarea()
   })
 })
@@ -105,13 +105,15 @@ function resetApp() {
   filterController.resetFilters()
 
   // reiniciar los valores de los inputs (visual)
-  brightnessInput.value = 100
-  contrastInput.value = 100
-  grayscaleInput.value = 0
-  blurInput.value = 0
-  hueRotateInput.value = 0
-  saturateInput.value = 100
-  sepiaInput.value = 0
+  const filters = filterController.getFilters()
+
+  brightnessInput.value = filters.brightness.default
+  contrastInput.value = filters.contrast.default
+  grayscaleInput.value = filters.grayscale.default
+  blurInput.value = filters.blur.default
+  hueRotateInput.value = filters.hueRotate.default
+  saturateInput.value = filters.saturate.default
+  sepiaInput.value = filters.sepia.default
 
   // actualizar el textarea
   updateTextarea()
