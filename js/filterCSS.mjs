@@ -80,7 +80,7 @@ class CSSFilterController {
     // this.getFilterCSSCode()
   }
 
-  getFilterCSSValue() {
+  getFilterValue() {
     let CSSFilterValue = ''
 
     for (let i in this.filters) {
@@ -94,19 +94,21 @@ class CSSFilterController {
     return CSSFilterValue.trim()
   }
 
-  getFilterCSSCode() {
-    const filterCSSValue = this.getFilterCSSValue()
+  getResultCode() {
+    let code = ''
+    const filterCSSValue = this.getFilterValue()
 
-    const code = `
-filter: ${filterCSSValue};
--webkit-filter: ${filterCSSValue};
--moz-filter: ${filterCSSValue};`
+    if (filterCSSValue) {
+      code += `filter: ${filterCSSValue};\n`
+      code += `-webkit-filter: ${filterCSSValue};\n`
+      code += `-moz-filter: ${filterCSSValue};`
+    }
 
     return code.trim()
   }
 
   applyFilters() {
-    this.element.style.filter = this.getFilterCSSValue()
+    this.element.style.filter = this.getFilterValue()
   }
 
   setBrightness(newValue) {

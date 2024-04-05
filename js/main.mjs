@@ -1,8 +1,22 @@
 import CSSFilterController from './filterCSS.mjs'
+import {
+  blurInput,
+  brightnessInput,
+  contrastInput,
+  grayscaleInput,
+  hueRotateInput,
+  invertInput,
+  opacityInput,
+  resetButton,
+  saturateInput,
+  sepiaInput,
+  codeTextarea,
+} from './utils/elements.mjs'
 
-const textarea = document.getElementById('textarea')
+/* 
+  Cambiar imagen de previsualización
+*/
 
-// Cambiar imagen de previsualización
 const fileInput = document.getElementById('fileInput')
 const previewImage = document.getElementById('previewImage')
 
@@ -22,71 +36,75 @@ fileInput.addEventListener('change', function () {
 // APLICAR FILTROS
 
 // Obtener el elemento de imagen
-const imagenElemento = document.getElementById('previewImage')
+const imagenElemento = document.querySelector('#previewImage')
 
 // Crear una instancia de CSSFilterController
 const filterController = new CSSFilterController(imagenElemento)
 
 // Escuahr evento de cambio del input y aplicar filtro
 
-const grayscaleInput = document.getElementById('grayscaleInput')
-grayscaleInput.addEventListener('input', function () {
-  filterController.setGrayscale(this.value)
-})
+const controller = [
+  {
+    inputElement: grayscaleInput,
+    setter: (value) => filterController.setGrayscale(value),
+  },
+  {
+    inputElement: sepiaInput,
+    setter: (value) => filterController.setSepia(value),
+  },
+  {
+    inputElement: blurInput,
+    setter: (value) => filterController.setBlur(value),
+  },
+  {
+    inputElement: brightnessInput,
+    setter: (value) => filterController.setBrightness(value),
+  },
+  {
+    inputElement: hueRotateInput,
+    setter: (value) => filterController.setHueRotate(value),
+  },
+  {
+    inputElement: saturateInput,
+    setter: (value) => filterController.setSaturate(value),
+  },
+  {
+    inputElement: contrastInput,
+    setter: (value) => filterController.setContrast(value),
+  },
+  {
+    inputElement: opacityInput,
+    setter: (value) => filterController.setOpacity(value),
+  },
+  {
+    inputElement: invertInput,
+    setter: (value) => filterController.setInvert(value),
+  },
+]
 
-const sepiaInput = document.getElementById('sepiaInput')
-sepiaInput.addEventListener('input', function () {
-  filterController.setSepia(this.value)
-})
+// Escuchar el evento de cambio de los inputs
+// y aplicar el filtro correspondiente
+// y actualizar el textarea
 
-const blurInput = document.getElementById('blurInput')
-blurInput.addEventListener('input', function () {
-  filterController.setBlur(this.value)
-})
-
-const brightnessInput = document.getElementById('brightnessInput')
-brightnessInput.addEventListener('input', function () {
-  filterController.setBrightness(this.value)
-})
-
-const hueRotateInput = document.getElementById('hueRotateInput')
-hueRotateInput.addEventListener('input', function () {
-  filterController.setHueRotate(this.value)
-})
-
-const saturateInput = document.getElementById('saturateInput')
-saturateInput.addEventListener('input', function () {
-  filterController.setSaturate(this.value)
-})
-
-const contrastInput = document.getElementById('contrastInput')
-contrastInput.addEventListener('input', function () {
-  filterController.setContrast(this.value)
-})
-
-const opacityInput = document.getElementById('opacityInput')
-opacityInput.addEventListener('input', function () {
-  filterController.setOpacity(this.value)
-})
-
-const invertInput = document.getElementById('invertInput')
-invertInput.addEventListener('input', function () {
-  filterController.setInvert(this.value)
-})
-
-// addEventListener para todos los inputs y obtener el valor del filtro
-const inputs = document.querySelectorAll('input[type="range"]')
-
-inputs.forEach((input) => {
-  input.addEventListener('input', function () {
-    const value = filterController.getFilterCSSCode()
-    textarea.value = value
+controller.forEach((item) => {
+  item.inputElement.addEventListener('input', function () {
+    item.setter(this.value)
+    updateTextarea()
   })
 })
 
 // Resetear los filtros
-const resetButton = document.getElementById('resetButton')
-resetButton.addEventListener('click', function () {
+resetButton.addEventListener('click', resetApp)
+
+const updateTextarea = () => {
+  codeTextarea.value = filterController.getResultCode()
+}
+
+function resetApp() {
+  // reiniciar los filtros (lógico)
+  filterController.resetFilters()
+
+  // reiniciar los valores de los inputs (visual)
   brightnessInput.value = 100
   contrastInput.value = 100
   grayscaleInput.value = 0
@@ -95,5 +113,6 @@ resetButton.addEventListener('click', function () {
   saturateInput.value = 100
   sepiaInput.value = 0
 
-  filterController.resetFilters()
-})
+  // actualizar el textarea
+  updateTextarea()
+}
