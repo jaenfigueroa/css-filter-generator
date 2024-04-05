@@ -17,71 +17,62 @@
     <section>
       <aside class="aside">
         <form>
-          <label for="Grayscale">Grayscale (100%)</label>
+          <label for="Grayscale">Grayscale</label>
           <div>
+            <input type="range" id="grayscaleInput" min="0" max="100" value="0" data-unit="%">
             <span>0%</span>
-            <input type="range" id="grayscaleInput" min="0" max="100" value="0">
-            <span>100%</span>
           </div>
 
-          <label for="Sepia">Sepia (100%)</label>
+          <label for="Sepia">Sepia</label>
           <div>
+            <input type="range" id="sepiaInput" min="0" max="100" value="0" data-unit="%">
             <span>0%</span>
-            <input type="range" id="sepiaInput" min="0" max="100" value="0">
-            <span>100%</span>
           </div>
 
-          <label for="Blur">Blur (10px)</label>
+          <label for="Blur">Blur</label>
           <div>
+            <input type="range" id="blurInput" min="0" max="10" value="0" data-unit="px">
             <span>0px</span>
-            <input type="range" id="blurInput" min="0" max="10" value="0">
-            <span>10%</span>
           </div>
 
-          <label for="Brightness">Brightness (200%)</label>
+          <label for="Brightness">Brightness</label>
           <div>
-            <span>0%</span>
-            <input type="range" id="brightnessInput" min="0" max="200" value="100">
-            <span>200%</span>
-          </div>
-
-          <label for="Hue-Rotate">Hue Rotate (360°)</label>
-          <div>
-            <span>0°</span>
-            <input type="range" id="hueRotateInput" min="0" max="360" value="0">
-            <span>360°</span>
-          </div>
-
-          <label for="Saturate">Saturate (1000%)</label>
-          <div>
-            <span>0%</span>
-            <input type="range" id="saturateInput" min="0" max="1000" value="100">
-            <span>1000%</span>
-          </div>
-
-          <label for="Opacity">Opacity (100%)</label>
-          <div>
-            <span>0%</span>
-            <input type="range" id="opacityInput" min="0" max="100" value="100">
+            <input type="range" id="brightnessInput" min="0" max="200" value="100" data-unit="%">
             <span>100%</span>
           </div>
 
-          <label for="Contrast">Contrast (1000%)</label>
+          <label for="Hue-Rotate">Hue Rotate</label>
           <div>
-            <span>0%</span>
-            <input type="range" id="contrastInput" min="0" max="1000" value="100">
-            <span>1000%</span>
+            <input type="range" id="hueRotateInput" min="0" max="360" value="0" data-unit="deg">
+            <span>0deg</span>
           </div>
 
-          <label for="Invert">Invert (100%)</label>
+          <label for="Saturate">Saturate</label>
           <div>
-            <span>0%</span>
-            <input type="range" id="invertInput" min="0" max="100" value="0">
+            <input type="range" id="saturateInput" min="0" max="1000" value="100" data-unit="%">
             <span>100%</span>
+          </div>
+
+          <label for="Opacity">Opacity</label>
+          <div>
+            <input type="range" id="opacityInput" min="0" max="100" value="100" data-unit="%">
+            <span>100%</span>
+          </div>
+
+          <label for="Contrast">Contrast</label>
+          <div>
+            <input type="range" id="contrastInput" min="0" max="1000" value="100" data-unit="%">
+            <span>100%</span>
+          </div>
+
+          <label for="Invert">Invert</label>
+          <div>
+            <input type="range" id="invertInput" min="0" max="100" value="0" data-unit="%">
+            <span>0%</span>
           </div>
         </form>
 
-        <button id="resetButton">Reiniciar</button>
+        <button id="resetButton">Reiniciar valores</button>
       </aside>
 
       <main class="main">
@@ -89,7 +80,7 @@
         <input type="file" id="fileInput" accept="image/*">
 
         <textarea name="" id="textarea"></textarea>
-        <button>Copiar</button>
+        <button>Copiar código CSS</button>
       </main>
     </section>
 

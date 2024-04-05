@@ -5,11 +5,15 @@
   font-family: sans-serif;
 }
 
+body {
+  background-color: linear-gradient(0deg, #0d0d12, #1a1a1f);
+}
+
 .container {
   min-height: 100vh;
   max-width: 1200px;
   margin: auto;
-  border: 1px dashed red;
+  /* border: 1px dashed red; */
 
   section {
     display: grid;
@@ -17,23 +21,24 @@
   }
 
   .header {
-    border: 1px dashed blue;
-    height: 40px;
+    /* border: 1px dashed blue; */
+    height: 50px;
     display: flex;
     align-items: center;
 
     h1 {
-      font-size: 1.5rem;
-      padding-inline: 1rem;
+      font-size: 1.2rem;
+      /* padding-inline: 1rem; */
     }
   }
 
   .aside {
-    border: 1px dashed green;
+    border: 1px solid rgba(0, 0, 0, 0.395);
     padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    min-width: 224px;
 
     form {
       display: flex;
@@ -41,7 +46,7 @@
       gap: 1rem;
 
       label {
-        color: blue;
+        color: rgb(66, 66, 255);
       }
 
       div {
@@ -50,13 +55,14 @@
 
         input {
           flex: 1;
+          /* accent-color: black; */
         }
       }
     }
   }
 
   .main {
-    border: 1px dashed violet;
+    /* border: 1px dashed violet; */
     padding: 1rem;
     display: flex;
     flex-direction: column;
