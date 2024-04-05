@@ -11,6 +11,7 @@ import {
   saturateInput,
   sepiaInput,
   codeTextarea,
+  copyButton,
 } from './utils/elements.mjs'
 
 /* 
@@ -142,3 +143,7 @@ function resetApp() {
   updateTextarea()
   updateLabels()
 }
+
+copyButton.addEventListener('click', function () {
+  navigator.clipboard.writeText(codeTextarea.value)
+})
