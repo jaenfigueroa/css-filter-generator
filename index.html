@@ -19,74 +19,76 @@
         <form>
           <label for="Grayscale">Grayscale (100%)</label>
           <div>
-            <span>0</span>
+            <span>0%</span>
             <input type="range" id="grayscaleInput" min="0" max="100" value="0">
-            <span>100</span>
+            <span>100%</span>
           </div>
 
           <label for="Sepia">Sepia (100%)</label>
           <div>
-            <span>0</span>
+            <span>0%</span>
             <input type="range" id="sepiaInput" min="0" max="100" value="0">
-            <span>100</span>
+            <span>100%</span>
           </div>
 
           <label for="Blur">Blur (10px)</label>
           <div>
-            <span>0</span>
+            <span>0px</span>
             <input type="range" id="blurInput" min="0" max="10" value="0">
-            <span>10</span>
+            <span>10%</span>
           </div>
 
           <label for="Brightness">Brightness (200%)</label>
           <div>
-            <span>0</span>
+            <span>0%</span>
             <input type="range" id="brightnessInput" min="0" max="200" value="100">
-            <span>200</span>
+            <span>200%</span>
           </div>
 
           <label for="Hue-Rotate">Hue Rotate (360°)</label>
           <div>
-            <span>0</span>
+            <span>0°</span>
             <input type="range" id="hueRotateInput" min="0" max="360" value="0">
-            <span>360</span>
+            <span>360°</span>
           </div>
 
           <label for="Saturate">Saturate (1000%)</label>
           <div>
-            <span>0</span>
+            <span>0%</span>
             <input type="range" id="saturateInput" min="0" max="1000" value="100">
-            <span>1000</span>
+            <span>1000%</span>
           </div>
 
           <label for="Opacity">Opacity (100%)</label>
           <div>
-            <span>0</span>
+            <span>0%</span>
             <input type="range" id="opacityInput" min="0" max="100" value="100">
-            <span>100</span>
+            <span>100%</span>
           </div>
 
           <label for="Contrast">Contrast (1000%)</label>
           <div>
-            <span>0</span>
+            <span>0%</span>
             <input type="range" id="contrastInput" min="0" max="1000" value="100">
-            <span>1000</span>
+            <span>1000%</span>
           </div>
 
           <label for="Invert">Invert (100%)</label>
           <div>
-            <span>0</span>
+            <span>0%</span>
             <input type="range" id="invertInput" min="0" max="100" value="0">
-            <span>100</span>
+            <span>100%</span>
           </div>
         </form>
+
+        <button id="resetButton">Reiniciar</button>
       </aside>
 
       <main class="main">
         <img src="./assets/img1.jpg" alt="Previsualización de imagen" id="previewImage">
         <input type="file" id="fileInput" accept="image/*">
 
-        <textarea name="" id=""></textarea>
+        <textarea name="" id="textarea"></textarea>
         <button>Copiar</button>
       </main>
     </section>

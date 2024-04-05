@@ -13,6 +13,7 @@ class CSSFilterController {
       invert: 0,
     }
     this.applyFilters()
+    this.getCSSFilterValue()
   }
 
   applyFilters() {
@@ -89,6 +90,19 @@ class CSSFilterController {
       invert: 0,
     }
     this.applyFilters()
+  }
+
+  getCSSFilterValue() {
+    const filterValue = `
+filter: ${this.element.style.filter};
+-webkit-filter: ${this.element.style.filter};
+-moz-filter: ${this.element.style.filter};`
+
+    // -o-filter: ${this.element.style.filter};
+    // -ms-filter: ${this.element.style.filter};
+
+    // console.log(filterValue)
+    return filterValue.trim()
   }
 }
 

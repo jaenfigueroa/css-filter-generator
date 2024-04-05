@@ -1,5 +1,7 @@
 import CSSFilterController from './filterCSS.mjs'
 
+const textarea = document.getElementById('textarea')
+
 // Cambiar imagen de previsualización
 const fileInput = document.getElementById('fileInput')
 const previewImage = document.getElementById('previewImage')
@@ -70,6 +72,17 @@ opacityInput.addEventListener('input', function () {
 const invertInput = document.getElementById('invertInput')
 invertInput.addEventListener('input', function () {
   filterController.setInvert(this.value)
+})
+
+// addEventListener para todos los inputs y obtener el valor del filtro
+const inputs = document.querySelectorAll('input[type="range"]')
+
+inputs.forEach((input) => {
+  input.addEventListener('input', function () {
+    const value = filterController.getCSSFilterValue()
+    // console.log(value)
+    textarea.value = value
+  })
 })
 
 // Resetear los filtros
