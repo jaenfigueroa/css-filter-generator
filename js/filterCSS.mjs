@@ -104,8 +104,8 @@ class CSSFilterController {
 
     if (filterCSSValue) {
       code += `filter: ${filterCSSValue};\n`
-      code += `-webkit-filter: ${filterCSSValue};\n`
-      code += `-moz-filter: ${filterCSSValue};`
+      // code += `-webkit-filter: ${filterCSSValue};\n`
+      // code += `-moz-filter: ${filterCSSValue};`
     }
 
     return code.trim()
