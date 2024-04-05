@@ -47,38 +47,47 @@ const controllers = [
   {
     inputElement: grayscaleInput,
     setter: filterController.setGrayscale,
+    valueElement: grayscaleInput.nextElementSibling,
   },
   {
     inputElement: sepiaInput,
     setter: filterController.setSepia,
+    valueElement: sepiaInput.nextElementSibling,
   },
   {
     inputElement: blurInput,
     setter: filterController.setBlur,
+    valueElement: blurInput.nextElementSibling,
   },
   {
     inputElement: brightnessInput,
     setter: filterController.setBrightness,
+    valueElement: brightnessInput.nextElementSibling,
   },
   {
     inputElement: hueRotateInput,
     setter: filterController.setHueRotate,
+    valueElement: hueRotateInput.nextElementSibling,
   },
   {
     inputElement: saturateInput,
     setter: filterController.setSaturate,
+    valueElement: saturateInput.nextElementSibling,
   },
   {
     inputElement: contrastInput,
     setter: filterController.setContrast,
+    valueElement: contrastInput.nextElementSibling,
   },
   {
     inputElement: opacityInput,
     setter: filterController.setOpacity,
+    valueElement: opacityInput.nextElementSibling,
   },
   {
     inputElement: invertInput,
     setter: filterController.setInvert,
+    valueElement: invertInput.nextElementSibling,
   },
 ]
 
@@ -90,6 +99,7 @@ controllers.forEach((item) => {
   item.inputElement.addEventListener('input', function () {
     item.setter.apply(filterController, [this.value])
     updateTextarea()
+    item.valueElement.textContent = `${this.value}${item.inputElement.dataset.unit || ''}`
   })
 })
 
@@ -98,6 +108,19 @@ resetButton.addEventListener('click', resetApp)
 
 const updateTextarea = () => {
   codeTextarea.value = filterController.getResultCode()
+}
+
+const updateLabels = () => {
+  const filters = filterController.getFilters()
+
+  brightnessInput.nextElementSibling.textContent =
+    filters.brightness.value + filters.brightness.unit
+  contrastInput.nextElementSibling.textContent = filters.contrast.value + filters.contrast.unit
+  grayscaleInput.nextElementSibling.textContent = filters.grayscale.value + filters.grayscale.unit
+  blurInput.nextElementSibling.textContent = filters.blur.value + filters.blur.unit
+  hueRotateInput.nextElementSibling.textContent = filters.hueRotate.value + filters.hueRotate.unit
+  saturateInput.nextElementSibling.textContent = filters.saturate.value + filters.saturate.unit
+  sepiaInput.nextElementSibling.textContent = filters.sepia.value + filters.sepia.unit
 }
 
 function resetApp() {
@@ -117,4 +140,5 @@ function resetApp() {
 
   // actualizar el textarea
   updateTextarea()
+  updateLabels()
 }
