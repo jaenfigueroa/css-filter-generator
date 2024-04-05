@@ -16,80 +16,86 @@
 
     <section>
       <aside class="aside">
-        <form>
+        <form id="formulario">
           <label for="Grayscale">Grayscale (100%)</label>
           <div>
             <span>0</span>
-            <input type="range" name="" id="Grayscale" min="0" max="100">
+            <input type="range" name="Grayscale" id="Grayscale" min="0" max="100">
             <span>100</span>
           </div>
 
           <label for="Sepia">Sepia (100%)</label>
           <div>
             <span>0</span>
-            <input type="range" name="" id="Sepia" min="0" max="100">
+            <input type="range" name="Sepia" id="Sepia" min="0" max="100">
             <span>100</span>
           </div>
 
           <label for="Blur">Blur (10px)</label>
           <div>
             <span>0</span>
-            <input type="range" name="" id="Blur" min="0" max="10">
+            <input type="range" name="Blur" id="Blur" min="0" max="10">
             <span>10</span>
           </div>
 
           <label for="Brightness">Brightness (200%)</label>
           <div>
             <span>0</span>
-            <input type="range" name="" id="Brightness" min="0" max="200">
+            <input type="range" name="Brightness" id="Brightness" min="0" max="200">
             <span>200</span>
           </div>
 
           <label for="Hue-Rotate">Hue Rotate (360°)</label>
           <div>
             <span>0</span>
-            <input type="range" name="" id="Hue-Rotate" min="0" max="360">
+            <input type="range" name="Hue-Rotate" id="Hue-Rotate" min="0" max="360">
             <span>360</span>
           </div>
 
           <label for="Saturate">Saturate (1000%)</label>
           <div>
             <span>0</span>
-            <input type="range" name="" id="Saturate" min="0" max="1000">
+            <input type="range" name="Saturate" id="Saturate" min="0" max="1000">
             <span>1000</span>
           </div>
 
           <label for="Opacity">Opacity (100%)</label>
           <div>
             <span>0</span>
-            <input type="range" name="" id="Opacity" min="0" max="100">
+            <input type="range" name="Opacity" id="Opacity" min="0" max="100">
             <span>100</span>
           </div>
 
           <label for="Contrast">Contrast (1000%)</label>
           <div>
             <span>0</span>
-            <input type="range" name="" id="Contrast" min="0" max="1000">
+            <input type="range" name="Contrast" id="Contrast" min="0" max="1000">
             <span>1000</span>
           </div>
 
           <label for="Invert">Invert (100%)</label>
           <div>
             <span>0</span>
-            <input type="range" name="" id="Invert" min="0" max="100">
+            <input type="range" name="Invert" id="Invert" min="0" max="100">
             <span>100</span>
           </div>
+
+          <button>Actualizar</button>
         </form>
       </aside>
 
       <main class="main">
-        <img src="./assets/img1.jpg" alt="">
+        <img src="./assets/img1.jpg" alt="Previsualización de imagen" id="previewImage">
+        <input type="file" id="fileInput" accept="image/*">
+
         <textarea name="" id=""></textarea>
         <button>Copiar</button>
       </main>
     </section>
 
   </div>
+
+  <script src="./main.mjs" type="module"></script>
 </body>
 
 </html>
