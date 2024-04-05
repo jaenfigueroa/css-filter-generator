@@ -7,17 +7,18 @@
 
 body {
   background-color: linear-gradient(0deg, #0d0d12, #1a1a1f);
+  padding-inline: 0.5rem;
 }
 
 .container {
   min-height: 100vh;
   max-width: 1200px;
   margin: auto;
-  /* border: 1px dashed red; */
 
   section {
     display: grid;
     grid-template-columns: 1fr 3fr;
+    padding-bottom: 0.5rem;
   }
 
   .header {
