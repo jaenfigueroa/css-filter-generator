@@ -79,8 +79,7 @@ const inputs = document.querySelectorAll('input[type="range"]')
 
 inputs.forEach((input) => {
   input.addEventListener('input', function () {
-    const value = filterController.getCSSFilterValue()
-    // console.log(value)
+    const value = filterController.getFilterCSSCode()
     textarea.value = value
   })
 })
