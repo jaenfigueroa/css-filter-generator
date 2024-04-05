@@ -10,3 +10,5 @@ export const invertInput = document.getElementById('invertInput')
 
 export const resetButton = document.getElementById('resetButton')
 export const codeTextarea = document.getElementById('textarea')
+
+export const copyButton = document.getElementById('copyButton')
