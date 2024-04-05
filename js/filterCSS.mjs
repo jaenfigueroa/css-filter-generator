@@ -14,9 +14,15 @@ class CSSFilterController {
   }
 
   applyFilters() {
-    const filterValue = Object.keys(this.filters)
-      .map((key) => `${key}(${this.filters[key]}%)`)
-      .join(' ')
+    const filterValue = `
+      brightness(${this.filters.brightness}%)
+      contrast(${this.filters.contrast}%)
+      grayscale(${this.filters.grayscale}%)
+      blur(${this.filters.blur}px)
+      hue-rotate(${this.filters.hueRotate}deg)
+      saturate(${this.filters.saturate}%)
+      sepia(${this.filters.sepia}%)
+    `
 
     this.element.style.filter = filterValue
   }
