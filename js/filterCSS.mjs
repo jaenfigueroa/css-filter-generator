@@ -9,6 +9,8 @@ class CSSFilterController {
       hueRotate: 0,
       saturate: 100,
       sepia: 0,
+      opacity: 100,
+      invert: 0,
     }
     this.applyFilters()
   }
@@ -22,6 +24,8 @@ class CSSFilterController {
       hue-rotate(${this.filters.hueRotate}deg)
       saturate(${this.filters.saturate}%)
       sepia(${this.filters.sepia}%)
+      opacity(${this.filters.opacity}%)
+      invert(${this.filters.invert}%)
     `
 
     this.element.style.filter = filterValue
@@ -59,6 +63,31 @@ class CSSFilterController {
 
   setSepia(value) {
     this.filters.sepia = value
+    this.applyFilters()
+  }
+
+  setOpacity(value) {
+    this.filters.opacity = value
+    this.applyFilters()
+  }
+
+  setInvert(value) {
+    this.filters.invert = value
+    this.applyFilters()
+  }
+
+  resetFilters() {
+    this.filters = {
+      brightness: 100,
+      contrast: 100,
+      grayscale: 0,
+      blur: 0,
+      hueRotate: 0,
+      saturate: 100,
+      sepia: 0,
+      opacity: 100,
+      invert: 0,
+    }
     this.applyFilters()
   }
 }

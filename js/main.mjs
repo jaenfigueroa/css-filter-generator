@@ -1,15 +1,15 @@
 import CSSFilterController from './filterCSS.mjs'
 
 // Recoger datos de un formulario
-const formulario = document.getElementById('formulario')
+// const formulario = document.getElementById('formulario')
 
-formulario.addEventListener('submit', (e) => {
-  e.preventDefault()
+// formulario.addEventListener('submit', (e) => {
+//   e.preventDefault()
 
-  const formData = new FormData(e.target)
-  const data = Object.fromEntries(formData)
-  console.log(data)
-})
+//   const formData = new FormData(e.target)
+//   const data = Object.fromEntries(formData)
+//   console.log(data)
+// })
 
 // Cambiar imagen de previsualización
 const fileInput = document.getElementById('fileInput')
@@ -38,3 +38,64 @@ const filterController = new CSSFilterController(imagenElemento)
 
 // Ejemplo: ajustar el brillo de la imagen
 filterController.setBrightness(150) // Esto aumentará el brillo al 150%
+
+// Escuahr evento de cambio del input y aplicar filtro
+
+const grayscaleInput = document.getElementById('grayscaleInput')
+grayscaleInput.addEventListener('input', function () {
+  filterController.setGrayscale(this.value)
+})
+
+const sepiaInput = document.getElementById('sepiaInput')
+sepiaInput.addEventListener('input', function () {
+  filterController.setSepia(this.value)
+})
+
+const blurInput = document.getElementById('blurInput')
+blurInput.addEventListener('input', function () {
+  filterController.setBlur(this.value)
+})
+
+const brightnessInput = document.getElementById('brightnessInput')
+brightnessInput.addEventListener('input', function () {
+  filterController.setBrightness(this.value)
+})
+
+const hueRotateInput = document.getElementById('hueRotateInput')
+hueRotateInput.addEventListener('input', function () {
+  filterController.setHueRotate(this.value)
+})
+
+const saturateInput = document.getElementById('saturateInput')
+saturateInput.addEventListener('input', function () {
+  filterController.setSaturate(this.value)
+})
+
+const contrastInput = document.getElementById('contrastInput')
+contrastInput.addEventListener('input', function () {
+  filterController.setContrast(this.value)
+})
+
+const opacityInput = document.getElementById('opacityInput')
+opacityInput.addEventListener('input', function () {
+  filterController.setOpacity(this.value)
+})
+
+const invertInput = document.getElementById('invertInput')
+invertInput.addEventListener('input', function () {
+  filterController.setInvert(this.value)
+})
+
+// Resetear los filtros
+const resetButton = document.getElementById('resetButton')
+resetButton.addEventListener('click', function () {
+  brightnessInput.value = 100
+  contrastInput.value = 100
+  grayscaleInput.value = 0
+  blurInput.value = 0
+  hueRotateInput.value = 0
+  saturateInput.value = 100
+  sepiaInput.value = 0
+
+  filterController.resetFilters()
+})
